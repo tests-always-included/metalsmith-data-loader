@@ -9,6 +9,8 @@ Metalsmith plugin to add extra metadata from external files.  Very similar to [m
 [![Dev Dependencies][devdependencies-badge]][devdependencies-link]
 [![codecov.io][codecov-badge]][codecov-link]
 
+The "dependencies" badge says there's a potential problem with `js-yaml` and suggests that packages use `.safeLoad()`, which is exactly what this plugin does.
+
 
 What It Does
 ------------
