@@ -1,0 +1,41 @@
+.DS_Store
+._*
+.Trash*
+$*
+
+# Keys and Certs
+*.pem
+*.crt
+*.csr
+*.key
+
+# Backup files
+*.sw[g-p]
+*.bak
+*~
+*#
+
+# IDEs
+*.as3proj
+.buildpath
+.c9revisions/
+.cproject
+.project
+.idea/
+.settings*
+.metadata/
+nbproject/
+
+# Generated
+/coverage/
+/node_modules/
+npm-debug.log
+
+# Sensitive
+encryption.key
+override.json
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

@@ -1,0 +1,41 @@
+{
+    "name": "metalsmith-data-loader",
+    "version": "1.0.0",
+    "description": "Metalsmith plugin to load data from files directly into your metadata.",
+    "tags": [
+        "metalsmith",
+        "plugin",
+        "data",
+        "metadata",
+        "load",
+        "file"
+    ],
+    "main": "lib/index.js",
+    "scripts": {
+        "test": "istanbul cover jasmine-node --captureExceptions lib spec && eslint lib spec && codecov",
+        "watch": "jasmine-node --autotest lib spec"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tests-always-included/metalsmith-mustache-metadata.git"
+    },
+    "author": "Tyler Akins",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/tests-always-included/metalsmith-mustache-metadata/issues"
+    },
+    "homepage": "https://github.com/tests-always-included/metalsmith-mustache-metadata#readme",
+    "dependencies": {
+        "debug": "^2.4.5",
+        "minimatch": "^3.0.3",
+        "js-yaml": "*"
+    },
+    "devDependencies": {
+        "codecov": "^1.0.1",
+        "eslint": "^3.12.2",
+        "istanbul": "^0.4.5",
+        "jasmine-node": "^1.14.5",
+        "metalsmith":"^2.3.0",
+        "mock-require": "^2.0.0"
+    }
+}
