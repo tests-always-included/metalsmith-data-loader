@@ -1,6 +1,6 @@
 {
     "name": "metalsmith-data-loader",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Metalsmith plugin to load data from files directly into your metadata.",
     "tags": [
         "metalsmith",
@@ -17,14 +17,14 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/tests-always-included/metalsmith-mustache-metadata.git"
+        "url": "https://github.com/tests-always-included/metalsmith-data-loader.git"
     },
     "author": "Tyler Akins",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/tests-always-included/metalsmith-mustache-metadata/issues"
+        "url": "https://github.com/tests-always-included/metalsmith-data-loader/issues"
     },
-    "homepage": "https://github.com/tests-always-included/metalsmith-mustache-metadata#readme",
+    "homepage": "https://github.com/tests-always-included/metalsmith-data-loader#readme",
     "dependencies": {
         "debug": "^2.4.5",
         "minimatch": "^3.0.3",
