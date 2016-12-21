@@ -68,7 +68,7 @@ Include this like you would include any other plugin.
 
     // Alternately, you can specify options.  The values shown here are
     // the defaults.
-    .use(mustacheMetadata({
+    .use(dataLoader({
         // Property name to scan for files to include.
         dataProperty: "data",
 
@@ -109,7 +109,7 @@ When loaded this way, the `data` metadata is replaced with the parsed contents o
         services: services.yaml
     ---
 
-This lets you load multiple files and assign them to properties on the `data` object.  One would access the information by using `{{data.users}}` or `{{data.services}}` in Mustache templates.
+This lets you load multiple files and assign them to properties on the `data` object.  One would access the information by using `{{data.users}}` or `{{data.services}}` in [Mustache] templates.
 
     ---
     title: An array of files.  The filenames are replaced with their contents.
@@ -118,7 +118,7 @@ This lets you load multiple files and assign them to properties on the `data` ob
         - file2.yaml
     ---
 
-The two files are loaded asynchronously and will replace the `file1.yaml` and `file2.yaml`.  You would access these in Mustache by using `{{data.0}}` and `{{data.1}}` or you can iterate over `{{#data}}`.
+The two files are loaded asynchronously and will replace the `file1.yaml` and `file2.yaml`.  You would access these in [Mustache] by using `{{data.0}}` and `{{data.1}}` or you can iterate over `{{#data}}`.
 
 
 Development
