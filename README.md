@@ -58,7 +58,21 @@ Installation
 Usage
 -----
 
-Include this like you would include any other plugin.
+Include this like you would include any other plugin.  First, a CLI example that shows the default options.  You don't need to specify any options unless you want to override their values.
+
+    {
+        "plugins": {
+            "metalsmith-data-loader": {
+                "dataProperty": "data",
+                "directory": "models/",
+                "match": "**/*",
+                "matchOptions": {},
+                "removeSource": false
+            }
+        }
+    }
+
+And here is the JavaScript example.  This includes brief descriptions of each of the options.
 
     // Load this, just like other plugins.
     var dataLoader = require("metalsmith-data-loader");
