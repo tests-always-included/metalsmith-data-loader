@@ -32,7 +32,7 @@
     },
     "devDependencies": {
         "codecov": "^1.0.1",
-        "eslint": "^3.13.1",
+        "eslint": "^3.14.0",
         "istanbul": "^0.4.5",
         "jasmine-node": "^1.14.5",
         "metalsmith":"^2.3.0",
