@@ -135,6 +135,21 @@ This lets you load multiple files and assign them to properties on the `data` ob
 The two files are loaded asynchronously and will replace the `file1.yaml` and `file2.yaml`.  You would access these in [Mustache] by using `{{data.0}}` and `{{data.1}}` or you can iterate over `{{#data}}`.
 
 
+Resolving Files
+---------------
+
+The combination of the `directory` configuration option and the `data` metadata property dictate which files are loaded.  This table can help illustrate the relationship.  In all of the examples, the `directory` configuration option is set to "models/" and the source file is always "src/path/file.md".
+
+| Metadata Path         | File to Load             | Description                                         |
+|-----------------------|--------------------------|-----------------------------------------------------|
+| file.yaml             | src/path/file.yaml       | Relative to source file                             |
+| ../file.yaml          | src/file.yaml            | Relative to the source file                         |
+| /other-path/file.yaml | src/other-path/file.yaml | Resolved from root of source folder                 |
+| /../file.yaml         | file.yaml                | Can load things outside the source folder.          |
+| !file.yaml            | models/file.yaml         | Resolved from the `directory`, not source folder    |
+| !../file.yaml         | file.yaml                | Can load items from outside the models `directory`. |
+
+
 Development
 -----------
 
