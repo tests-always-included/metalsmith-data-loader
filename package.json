@@ -26,16 +26,16 @@
     },
     "homepage": "https://github.com/tests-always-included/metalsmith-data-loader#readme",
     "dependencies": {
-        "debug": "^2.4.5",
+        "debug": "^2.6.0",
         "minimatch": "^3.0.3",
         "js-yaml": "*"
     },
     "devDependencies": {
         "codecov": "^1.0.1",
-        "eslint": "^3.12.2",
+        "eslint": "^3.14.0",
         "istanbul": "^0.4.5",
         "jasmine-node": "^1.14.5",
         "metalsmith":"^2.3.0",
-        "mock-require": "^2.0.0"
+        "mock-require": "^2.0.1"
     }
 }

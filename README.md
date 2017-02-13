@@ -149,18 +149,18 @@ This uses Jasmine, Istanbul and ESLint for tests.
 This plugin is licensed under the [MIT License][License] with an additional non-advertising clause.  See the [full license text][License] for information.
 
 
-[codecov-badge]: https://codecov.io/github/tests-always-included/metalsmith-data-loader/coverage.svg?branch=master
+[codecov-badge]: https://img.shields.io/codecov/c/github/tests-always-included/metalsmith-data-loader/master.svg
 [codecov-link]: https://codecov.io/github/tests-always-included/metalsmith-data-loader?branch=master
-[dependencies-badge]: https://david-dm.org/tests-always-included/metalsmith-data-loader.png
+[dependencies-badge]: https://img.shields.io/david/tests-always-included/metalsmith-data-loader.svg
 [dependencies-link]: https://david-dm.org/tests-always-included/metalsmith-data-loader
-[devdependencies-badge]: https://david-dm.org/tests-always-included/metalsmith-data-loader/dev-status.png
+[devdependencies-badge]: https://img.shields.io/david/dev/tests-always-included/metalsmith-data-loader.svg
 [devdependencies-link]: https://david-dm.org/tests-always-included/metalsmith-data-loader#info=devDependencies
 [License]: LICENSE.md
 [metalsmith-hbt-md]: https://github.com/ahdiaz/metalsmith-hbt-md
 [metalsmith-models]: https://github.com/jaichandra/metalsmith-models
 [minimatch]: https://github.com/isaacs/minimatch
 [Mustache]: https://mustache.github.io/
-[npm-badge]: https://badge.fury.io/js/metalsmith-data-loader.svg
+[npm-badge]: https://img.shields.io/npm/v/metalsmith-data-loader.svg
 [npm-link]: https://npmjs.org/package/metalsmith-data-loader
-[travis-badge]: https://secure.travis-ci.org/tests-always-included/metalsmith-data-loader.png
+[travis-badge]: https://img.shields.io/travis/tests-always-included/metalsmith-data-loader/master.svg
 [travis-link]: http://travis-ci.org/tests-always-included/metalsmith-data-loader
