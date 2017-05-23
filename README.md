@@ -46,6 +46,8 @@ This plugin differs from that approach, allowing you to have your Markdown files
 
 This isn't limited to table generation.  You could load metadata specific to a collection of pages.  Maybe you have a site where different authors maintain different pages and you could point to a single source for the author's information.
 
+If you prefer to work with code, there is an [example repository][example] set up that illustrates how the plugin functions.
+
 
 Installation
 ------------
@@ -149,6 +151,8 @@ The combination of the `directory` configuration option and the `data` metadata 
 | !file.yaml            | models/file.yaml         | Resolved from the `directory`, not source folder    |
 | !../file.yaml         | file.yaml                | Can load items from outside the models `directory`. |
 
+You can play with the [example repository][example] to get a better handle on how the plugin works.
+
 
 Development
 -----------
@@ -170,6 +174,7 @@ This plugin is licensed under the [MIT License][License] with an additional non-
 [dependencies-link]: https://david-dm.org/tests-always-included/metalsmith-data-loader
 [devdependencies-badge]: https://img.shields.io/david/dev/tests-always-included/metalsmith-data-loader.svg
 [devdependencies-link]: https://david-dm.org/tests-always-included/metalsmith-data-loader#info=devDependencies
+[example]: https://github.com/tests-always-included/metalsmith-data-loader-example
 [License]: LICENSE.md
 [metalsmith-hbt-md]: https://github.com/ahdiaz/metalsmith-hbt-md
 [metalsmith-models]: https://github.com/jaichandra/metalsmith-models
