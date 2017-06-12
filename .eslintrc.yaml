@@ -1,10 +1,11 @@
 parserOptions:
-    ecmaVersion: 5
+    ecmaVersion: 6
 env:
-    es6: false
+    es6: true
     jasmine: true
     node: true
-extends: eslint:recommended
+extends:
+    - eslint:recommended
 rules:
     accessor-pairs: error
     array-bracket-spacing:
@@ -175,9 +176,11 @@ rules:
         - error
         - never
     prefer-arrow-callback:
-        - off
+        - error
+        -
+            allowNamedFunctions: true
     prefer-const: error
-    prefer-template: off
+    prefer-template: error
     quote-props:
         - error
         - as-needed

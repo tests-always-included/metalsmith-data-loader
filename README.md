@@ -154,6 +154,136 @@ The combination of the `directory` configuration option and the `data` metadata 
 You can play with the [example repository][example] to get a better handle on how the plugin works.
 
 
+API
+---
+
+<a name="module_metalsmith-data-loader"></a>
+
+## metalsmith-data-loader
+**Params**
+
+- destination <code>Object</code> - Metalsmith Data Loader
+
+Loads files and places their data structures in as file metadata.
+
+**Example**  
+```js
+var dataLoader = require("metalsmith-data-loader");
+
+// Create your Metalsmith instance and add this like other middleware.
+metalsmith.use(dataLoader({
+    // configuration goes here
+}));
+```
+
+* [metalsmith-data-loader](#module_metalsmith-data-loader)
+    * [module.exports(options)](#exp_module_metalsmith-data-loader--module.exports) ⇒ <code>function</code> ⏏
+        * [~removeSource(sourceFile, modelFile, files, options)](#module_metalsmith-data-loader--module.exports..removeSource)
+        * [~resolveFile(metalsmith, sourceFile, modelFile, options)](#module_metalsmith-data-loader--module.exports..resolveFile) ⇒ <code>string</code>
+        * [~loadModel(dataFile)](#module_metalsmith-data-loader--module.exports..loadModel) ⇒ <code>Promise.&lt;\*&gt;</code>
+        * [~metalsmithFile](#module_metalsmith-data-loader--module.exports..metalsmithFile) : <code>Object</code>
+        * [~metalsmithFileCollection](#module_metalsmith-data-loader--module.exports..metalsmithFileCollection) : <code>Object.&lt;string, module:metalsmith-data-loader--module.exports~metalsmithFile&gt;</code>
+        * [~options](#module_metalsmith-data-loader--module.exports..options) : <code>Object</code>
+
+<a name="exp_module_metalsmith-data-loader--module.exports"></a>
+
+### module.exports(options) ⇒ <code>function</code> ⏏
+Factory to build middleware for Metalsmith.
+
+**Kind**: Exported function  
+**Params**
+
+- options [<code>options</code>](#module_metalsmith-data-loader--module.exports..options)
+
+<a name="module_metalsmith-data-loader--module.exports..removeSource"></a>
+
+#### module.exports~removeSource(sourceFile, modelFile, files, options)
+Removes a file from the list of files to process.  This only
+happens when it is included by another file through this data
+loader and when the option is enabled.
+
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_metalsmith-data-loader--module.exports)  
+**Params**
+
+- sourceFile <code>string</code> - filename
+- modelFile <code>string</code> - Not resolved to a full path
+- files [<code>metalsmithFileCollection</code>](#module_metalsmith-data-loader--module.exports..metalsmithFileCollection) - Metalsmith files object
+- options [<code>options</code>](#module_metalsmith-data-loader--module.exports..options)
+
+<a name="module_metalsmith-data-loader--module.exports..resolveFile"></a>
+
+#### module.exports~resolveFile(metalsmith, sourceFile, modelFile, options) ⇒ <code>string</code>
+Resolves a file path and checks to make sure it exists.
+
+Paths can look like any of these:
+
+  model.json                -> Relative to file
+  ./model.json              -> Relative to file
+  dir/model.yaml            -> Relative to file
+  ../model.json             -> Relative to file
+  /model.yaml               -> From root of source
+  /dir/model.json           -> From root of source
+  !model.yaml               -> From models folder (not in source)
+  !dir/model.json           -> From models folder (not in source)
+
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_metalsmith-data-loader--module.exports)  
+**Params**
+
+- metalsmith <code>module:metalsmith</code> - Metalsmith instance.
+- sourceFile <code>string</code> - Filename being processed.
+- modelFile <code>string</code> - Reference inside the file's metadata.
+- options [<code>options</code>](#module_metalsmith-data-loader--module.exports..options)
+
+<a name="module_metalsmith-data-loader--module.exports..loadModel"></a>
+
+#### module.exports~loadModel(dataFile) ⇒ <code>Promise.&lt;\*&gt;</code>
+Loads a file asynchronously and places metadata on the destination
+object.
+
+**Kind**: inner method of [<code>module.exports</code>](#exp_module_metalsmith-data-loader--module.exports)  
+**Returns**: <code>Promise.&lt;\*&gt;</code> - The loaded data.  
+**Params**
+
+- dataFile <code>string</code> - Resolved filename to load.
+
+<a name="module_metalsmith-data-loader--module.exports..metalsmithFile"></a>
+
+#### module.exports~metalsmithFile : <code>Object</code>
+Metalsmith file object.
+
+**Kind**: inner typedef of [<code>module.exports</code>](#exp_module_metalsmith-data-loader--module.exports)  
+**Properties**
+
+| Name | Type |
+| --- | --- |
+| contents | <code>Buffer</code> | 
+| mode | <code>string</code> | 
+
+<a name="module_metalsmith-data-loader--module.exports..metalsmithFileCollection"></a>
+
+#### module.exports~metalsmithFileCollection : <code>Object.&lt;string, module:metalsmith-data-loader--module.exports~metalsmithFile&gt;</code>
+Metalsmith collection of file objects.
+
+**Kind**: inner typedef of [<code>module.exports</code>](#exp_module_metalsmith-data-loader--module.exports)  
+<a name="module_metalsmith-data-loader--module.exports..options"></a>
+
+#### module.exports~options : <code>Object</code>
+Options for the middleware factory.
+
+**Kind**: inner typedef of [<code>module.exports</code>](#exp_module_metalsmith-data-loader--module.exports)  
+**See**: [https://github.com/fidian/metalsmith-plugin-kit](https://github.com/fidian/metalsmith-plugin-kit)  
+**Properties**
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| dataProperty | <code>string</code> | <code>&quot;data&quot;</code> | Name of property to use for loading models. |
+| directory | <code>string</code> | <code>&quot;models/&quot;</code> | Path for storing external modules. |
+| match | <code>module:metalsmith-plugin-kit~matchList</code> |  | Files to match. Defaults to all files. |
+| matchOptions | <code>module:metalsmith-plugin-kit~matchOptions</code> | <code>{}</code> | Options controlling how to match files. |
+| removeSource | <code>boolean</code> | <code>true</code> | When truthy, remove the model from the build result. |
+
+
+
 Development
 -----------
 
