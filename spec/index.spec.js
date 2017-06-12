@@ -4,10 +4,10 @@ var mockRequire;
 
 mockRequire = require("mock-require");
 
-describe("metalsmith-data-loader", function () {
+describe("metalsmith-data-loader", () => {
     var callPlugin, fsMock, metalsmith;
 
-    beforeEach(function () {
+    beforeEach(() => {
         var Metalsmith;
 
         // Load metalsmith without mocks.
@@ -18,7 +18,7 @@ describe("metalsmith-data-loader", function () {
         fsMock = jasmine.createSpyObj("fsMock", [
             "readFile"
         ]);
-        fsMock.readFile.and.callFake(function (filename, encoding, callback) {
+        fsMock.readFile.and.callFake((filename, encoding, callback) => {
             var content;
 
             content = null;
@@ -33,11 +33,11 @@ describe("metalsmith-data-loader", function () {
             } else if (filename.match(/\.txt$/)) {
                 content = "Text!";
             }
-            setTimeout(function () {
+            setTimeout(() => {
                 if (content) {
                     callback(null, content);
                 } else {
-                    callback(new Error("Bad file type for file: " + filename));
+                    callback(new Error(`Bad file type for file: ${filename}`));
                 }
             });
         });
@@ -60,15 +60,15 @@ describe("metalsmith-data-loader", function () {
             });
         };
     });
-    afterEach(function () {
+    afterEach(() => {
         mockRequire.stopAll();
     });
-    it("does not break with no files and no configuration", function () {
+    it("does not break with no files and no configuration", () => {
         return callPlugin({}).then((files) => {
             expect(files).toEqual({});
         });
     });
-    it("matches all files by default", function () {
+    it("matches all files by default", () => {
         return callPlugin({
             a: {
                 data: "test.yaml"
@@ -91,7 +91,7 @@ describe("metalsmith-data-loader", function () {
             });
         });
     });
-    it("can use any property name", function () {
+    it("can use any property name", () => {
         return callPlugin({
             a: {
                 data: "wrong.json",
@@ -110,7 +110,7 @@ describe("metalsmith-data-loader", function () {
             });
         });
     });
-    it("uses matching options", function () {
+    it("uses matching options", () => {
         return callPlugin({
             X: {
                 data: "test.yaml"
@@ -144,8 +144,8 @@ describe("metalsmith-data-loader", function () {
             });
         });
     });
-    describe("removing source files", function () {
-        it("removes files in source tree", function () {
+    describe("removing source files", () => {
+        it("removes files in source tree", () => {
             return callPlugin({
                 "test.html": {
                     data: "test.json"
@@ -180,7 +180,7 @@ describe("metalsmith-data-loader", function () {
                 });
             });
         });
-        it("removes files when used with leading slash", function () {
+        it("removes files when used with leading slash", () => {
             return callPlugin({
                 "a/b": {
                     data: "/file.json"
@@ -198,7 +198,7 @@ describe("metalsmith-data-loader", function () {
                 });
             });
         });
-        it("ignores files in models folder", function () {
+        it("ignores files in models folder", () => {
             return callPlugin({
                 "a/b": {
                     data: "!file.json"
@@ -220,8 +220,8 @@ describe("metalsmith-data-loader", function () {
             });
         });
     });
-    describe("metadata definitions", function () {
-        it("processes strings", function () {
+    describe("metadata definitions", () => {
+        it("processes strings", () => {
             return callPlugin({
                 string: {
                     data: "x.json"
@@ -236,7 +236,7 @@ describe("metalsmith-data-loader", function () {
                 });
             });
         });
-        it("processes arrays", function () {
+        it("processes arrays", () => {
             return callPlugin({
                 array: {
                     data: [
@@ -259,7 +259,7 @@ describe("metalsmith-data-loader", function () {
                 });
             });
         });
-        it("processes objects", function () {
+        it("processes objects", () => {
             return callPlugin({
                 object: {
                     data: {
@@ -282,7 +282,7 @@ describe("metalsmith-data-loader", function () {
                 });
             });
         });
-        it("rejects other types of input", function () {
+        it("rejects other types of input", () => {
             return callPlugin({
                 number: {
                     data: 7
@@ -296,8 +296,8 @@ describe("metalsmith-data-loader", function () {
             });
         });
     });
-    describe("data formats", function () {
-        it("handles JSON", function () {
+    describe("data formats", () => {
+        it("handles JSON", () => {
             return callPlugin({
                 a: {
                     data: "x.json"
@@ -312,14 +312,14 @@ describe("metalsmith-data-loader", function () {
                 });
             });
         });
-        it("accepts JSON errors", function () {
+        it("accepts JSON errors", () => {
             return callPlugin({
                 a: {
                     data: "broken.json"
                 }
             }).then(jasmine.fail, () => {});
         });
-        it("handles YAML", function () {
+        it("handles YAML", () => {
             return callPlugin({
                 a: {
                     data: "x.yaml"
@@ -334,14 +334,14 @@ describe("metalsmith-data-loader", function () {
                 });
             });
         });
-        it("accepts YAML errors", function () {
+        it("accepts YAML errors", () => {
             return callPlugin({
                 a: {
                     data: "broken.yaml"
                 }
             }).then(jasmine.fail, () => {});
         });
-        it("breaks on other types of input", function () {
+        it("breaks on other types of input", () => {
             return callPlugin({
                 // .txt is used because fs won't throw an error with it
                 a: {
@@ -350,8 +350,8 @@ describe("metalsmith-data-loader", function () {
             }).then(jasmine.fail, () => {});
         });
     });
-    describe("file loading", function () {
-        it("sends errors back", function () {
+    describe("file loading", () => {
+        it("sends errors back", () => {
             return callPlugin({
                 // Use an unconfigured extension for the fs mock
                 a: {
@@ -360,13 +360,13 @@ describe("metalsmith-data-loader", function () {
             }).then(jasmine.fail, () => {});
         });
     });
-    describe("path resolution", function () {
-        beforeEach(function () {
-            fsMock.readFile.and.callFake(function (filename, encoding, callback) {
+    describe("path resolution", () => {
+        beforeEach(() => {
+            fsMock.readFile.and.callFake((filename, encoding, callback) => {
                 callback(null, Buffer.from(JSON.stringify(filename), "utf8"));
             });
         });
-        it("resolves near file", function () {
+        it("resolves near file", () => {
             return callPlugin({
                 "same/folder": {
                     data: "file.json"
@@ -397,7 +397,7 @@ describe("metalsmith-data-loader", function () {
                 });
             });
         });
-        it("resolves at root of source", function () {
+        it("resolves at root of source", () => {
             return callPlugin({
                 "a/b": {
                     data: "/file.json"
@@ -416,7 +416,7 @@ describe("metalsmith-data-loader", function () {
                 });
             });
         });
-        it("resolves in models directory", function () {
+        it("resolves in models directory", () => {
             return callPlugin({
                 "a/b": {
                     data: "!file.json"
