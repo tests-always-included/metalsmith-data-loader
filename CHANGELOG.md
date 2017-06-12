@@ -2,6 +2,19 @@ Changelog
 =========
 
 
+1.1.1 - 2017-06-12
+------------------
+
+* Forgot to migrate tests to ES6.
+
+
+1.1.0 - 2017-06-12
+------------------
+
+* Started using metalsmith-plugin-kit.
+* Update documentation.
+
+
 1.0.3 - 2017-02-13
 ------------------
 
