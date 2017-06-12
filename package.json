@@ -13,7 +13,7 @@
     "main": "lib/index.js",
     "scripts": {
         "clean": "rm -rf coverage node_modules/ package-lock.json",
-        "readme": "cp README.pre README.md && jsdoc2md --no-cache -f 'lib/**/*' --global-index-format grouped --param-list-format list >> README.md && cat README.post >> README.md",
+        "readme": "cp README.pre README.md && jsdoc2md --no-cache -f 'lib/**/*' --global-index-format grouped --property-list-format list --param-list-format list >> README.md && cat README.post >> README.md",
         "test": "istanbul cover jasmine && eslint lib spec && codecov",
         "watch": "nodemon --exec jasmine"
     },
