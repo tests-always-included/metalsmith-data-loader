@@ -20,7 +20,7 @@ This plugin is licensed under the [MIT License][License] with an additional non-
 [dependencies-link]: https://david-dm.org/tests-always-included/metalsmith-data-loader
 [devdependencies-badge]: https://img.shields.io/david/dev/tests-always-included/metalsmith-data-loader.svg
 [devdependencies-link]: https://david-dm.org/tests-always-included/metalsmith-data-loader#info=devDependencies
-[example]: https://github.com/tests-always-included/metalsmith-data-loader-example
+[example]: https://github.com/fidian/metalsmith-data-loader-example
 [License]: LICENSE.md
 [metalsmith-hbt-md]: https://github.com/ahdiaz/metalsmith-hbt-md
 [metalsmith-models]: https://github.com/jaichandra/metalsmith-models
