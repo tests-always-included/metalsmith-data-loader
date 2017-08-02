@@ -97,7 +97,8 @@ And here is the JavaScript example.  This includes brief descriptions of each of
         // to specific files.
         match: "**/*",
 
-        // Options for matching files.  See minimatch for more information.
+        // Options for matching files.  See metalsmith-plugin-kit for
+        // more information.
         matchOptions: {},
 
         // Flag indicating that the loaded data object should be removed
@@ -107,7 +108,7 @@ And here is the JavaScript example.  This includes brief descriptions of each of
         removeSource: false
     })
 
-This uses [minimatch] to match files.  The `.matchOptions` object can be filled with options that the [minimatch] library uses.
+This uses [metalsmith-plugin-kit] to match files.  The `.matchOptions` object can be filled with options control how the matching behaves.
 
 From here, you now need to specify the files to include.  These examples all assume you didn't change `dataProperty`.
 
@@ -142,14 +143,21 @@ Resolving Files
 
 The combination of the `directory` configuration option and the `data` metadata property dictate which files are loaded.  This table can help illustrate the relationship.  In all of the examples, the `directory` configuration option is set to "models/" and the source file is always "src/path/file.md".
 
-| Metadata Path         | File to Load             | Description                                         |
-|-----------------------|--------------------------|-----------------------------------------------------|
-| file.yaml             | src/path/file.yaml       | Relative to source file                             |
-| ../file.yaml          | src/file.yaml            | Relative to the source file                         |
-| /other-path/file.yaml | src/other-path/file.yaml | Resolved from root of source folder                 |
-| /../file.yaml         | file.yaml                | Can load things outside the source folder.          |
-| !file.yaml            | models/file.yaml         | Resolved from the `directory`, not source folder    |
-| !../file.yaml         | file.yaml                | Can load items from outside the models `directory`. |
+| Metadata Path         | File to Load             | Description                                                       |
+|-----------------------|--------------------------|-------------------------------------------------------------------|
+| file.yaml             | src/path/file.yaml       | Relative to source file.                                          |
+| ../file.yaml          | src/file.yaml            | Relative to the source file.                                      |
+| /other-path/file.yaml | src/other-path/file.yaml | Resolved from root of source folder.                              |
+| /../file.yaml         | file.yaml                | Can load things outside the source folder.                        |
+| !file.yaml            | models/file.yaml         | Resolved from the `directory`, not source folder. See the note!   |
+| !../file.yaml         | file.yaml                | Can load items from outside the models `directory`. See the note! |
+
+**Note:** When the metadata path starts with an exclamation point (`!`), you must use quotes in your YAML frontmatter. Here's a sample.
+
+    ---
+    title: Sample file that loads a file from a models directory
+    data: "!file-from-models.json"
+    ---
 
 You can play with the [example repository][example] to get a better handle on how the plugin works.
 
@@ -254,10 +262,8 @@ Metalsmith file object.
 **Kind**: inner typedef of [<code>module.exports</code>](#exp_module_metalsmith-data-loader--module.exports)  
 **Properties**
 
-| Name | Type |
-| --- | --- |
-| contents | <code>Buffer</code> | 
-| mode | <code>string</code> | 
+- contents <code>Buffer</code>  
+- mode <code>string</code>  
 
 <a name="module_metalsmith-data-loader--module.exports..metalsmithFileCollection"></a>
 
@@ -274,13 +280,11 @@ Options for the middleware factory.
 **See**: [https://github.com/fidian/metalsmith-plugin-kit](https://github.com/fidian/metalsmith-plugin-kit)  
 **Properties**
 
-| Name | Type | Default | Description |
-| --- | --- | --- | --- |
-| dataProperty | <code>string</code> | <code>&quot;data&quot;</code> | Name of property to use for loading models. |
-| directory | <code>string</code> | <code>&quot;models/&quot;</code> | Path for storing external modules. |
-| match | <code>module:metalsmith-plugin-kit~matchList</code> |  | Files to match. Defaults to all files. |
-| matchOptions | <code>module:metalsmith-plugin-kit~matchOptions</code> | <code>{}</code> | Options controlling how to match files. |
-| removeSource | <code>boolean</code> | <code>true</code> | When truthy, remove the model from the build result. |
+- dataProperty <code>string</code> - Name of property to use for loading models.  
+- directory <code>string</code> - Path for storing external modules.  
+- match <code>module:metalsmith-plugin-kit~matchList</code> - Files to match. Defaults to all files.  
+- matchOptions <code>module:metalsmith-plugin-kit~matchOptions</code> - Options controlling how to match files.  
+- removeSource <code>boolean</code> - When truthy, remove the model from the build result.  
 
 
 
@@ -304,11 +308,11 @@ This plugin is licensed under the [MIT License][License] with an additional non-
 [dependencies-link]: https://david-dm.org/tests-always-included/metalsmith-data-loader
 [devdependencies-badge]: https://img.shields.io/david/dev/tests-always-included/metalsmith-data-loader.svg
 [devdependencies-link]: https://david-dm.org/tests-always-included/metalsmith-data-loader#info=devDependencies
-[example]: https://github.com/tests-always-included/metalsmith-data-loader-example
+[example]: https://github.com/fidian/metalsmith-data-loader-example
 [License]: LICENSE.md
 [metalsmith-hbt-md]: https://github.com/ahdiaz/metalsmith-hbt-md
 [metalsmith-models]: https://github.com/jaichandra/metalsmith-models
-[minimatch]: https://github.com/isaacs/minimatch
+[metalsmith-plugin-kit]: https://github.com/fidian/metalsmith-plugin-kit
 [Mustache]: https://mustache.github.io/
 [npm-badge]: https://img.shields.io/npm/v/metalsmith-data-loader.svg
 [npm-link]: https://npmjs.org/package/metalsmith-data-loader

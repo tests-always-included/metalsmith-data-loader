@@ -2,6 +2,13 @@ Changelog
 =========
 
 
+1.1.2 - 2017-08-01
+------------------
+
+* Documentation updates.
+* No functional changes.
+
+
 1.1.1 - 2017-06-12
 ------------------
 
