@@ -28,7 +28,7 @@
     },
     "homepage": "https://github.com/tests-always-included/metalsmith-data-loader#readme",
     "dependencies": {
-        "debug": "^2.6.8",
+        "debug": "^3.0.0",
         "js-yaml": "*",
         "metalsmith-plugin-kit": "^1.0.1"
     },
