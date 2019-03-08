@@ -68,6 +68,7 @@ Include this like you would include any other plugin.  First, a CLI example that
                 "dataProperty": "data",
                 "directory": "models/",
                 "match": "**/*",
+                "ignoreReadFailure": false,
                 "matchOptions": {},
                 "removeSource": false
             }
@@ -96,6 +97,10 @@ And here is the JavaScript example.  This includes brief descriptions of each of
         // Pattern of files to match in case you want to limit processing
         // to specific files.
         match: "**/*",
+
+        // Options to ignore read failures, usefull if you want to continue processing even if the file is not found
+        // more information.
+        ignoreReadFailure: false,
 
         // Options for matching files.  See metalsmith-plugin-kit for
         // more information.
