@@ -67,8 +67,8 @@ Include this like you would include any other plugin.  First, a CLI example that
             "metalsmith-data-loader": {
                 "dataProperty": "data",
                 "directory": "models/",
-                "match": "**/*",
                 "ignoreReadFailure": false,
+                "match": "**/*",
                 "matchOptions": {},
                 "removeSource": false
             }
@@ -98,8 +98,10 @@ And here is the JavaScript example.  This includes brief descriptions of each of
         // to specific files.
         match: "**/*",
 
-        // Options to ignore read failures, usefull if you want to continue processing even if the file is not found
-        // more information.
+        // Options to ignore read failures, useful if you want to continue
+        // processing even if the file is not found. When this is set to false,
+        // the build will throw an exception when trying to load a file that
+        // does not exist and is typically what people want.
         ignoreReadFailure: false,
 
         // Options for matching files.  See metalsmith-plugin-kit for
