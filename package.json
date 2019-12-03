@@ -14,7 +14,7 @@
     "scripts": {
         "clean": "rm -rf coverage node_modules/ package-lock.json",
         "readme": "cp README.pre README.md && jsdoc2md --no-cache -f 'lib/**/*' --global-index-format grouped --property-list-format list --param-list-format list >> README.md && cat README.post >> README.md",
-        "test": "istanbul cover jasmine && eslint lib spec && codecov",
+        "test": "jasmine && eslint lib spec",
         "watch": "nodemon --exec jasmine"
     },
     "repository": {
@@ -28,19 +28,17 @@
     },
     "homepage": "https://github.com/tests-always-included/metalsmith-data-loader#readme",
     "dependencies": {
-        "debug": "^3.0.0",
+        "debug": "^4.1.1",
         "js-yaml": "*",
         "metalsmith-plugin-kit": "^1.0.1"
     },
     "devDependencies": {
-        "codecov": "^2.2.0",
-        "eslint": "^4.0.0",
-        "istanbul": "^0.4.5",
-        "jasmine": "^2.6.0",
+        "eslint": "^6.7.2",
+        "jasmine": "^3.5.0",
         "jasmine-test-helpers": "^1.2.3",
-        "jsdoc-to-markdown": "^3.0.0",
+        "jsdoc-to-markdown": "^5.0.3",
         "metalsmith": "^2.3.0",
-        "mock-require": "^2.0.2",
-        "nodemon": "^1.11.0"
+        "mock-require": "^3.0.3",
+        "nodemon": "^2.0.1"
     }
 }

@@ -1,8 +1,9 @@
 "use strict";
 
-var mockRequire;
+var mockRequire, path;
 
 mockRequire = require("mock-require");
+path = require("path");
 
 describe("metalsmith-data-loader", () => {
     var callPlugin, fsMock, metalsmith;
@@ -42,6 +43,9 @@ describe("metalsmith-data-loader", () => {
             });
         });
         mockRequire("fs", fsMock);
+
+        // path
+        mockRequire("path", path.posix);
 
         // Wrap the call to the plugin so it returns a promise.
         callPlugin = (files, config) => {
@@ -173,6 +177,43 @@ describe("metalsmith-data-loader", () => {
                         }
                     },
                     "test2/y": {
+                        data: {
+                            json: true
+                        }
+                    }
+                });
+            });
+        });
+        it("works with a Windows environment", () => {
+            mockRequire("path", path.win32);
+
+            return callPlugin({
+                "test.html": {
+                    data: "test.json"
+                },
+                "test.json": {},
+                "test2\\x": {
+                    data: "test2.json"
+                },
+                "test2\\y": {
+                    data: "test2.json"
+                },
+                "test2\\test2.json": {}
+            }, {
+                removeSource: true
+            }).then((files) => {
+                expect(files).toEqual({
+                    "test.html": {
+                        data: {
+                            json: true
+                        }
+                    },
+                    "test2\\x": {
+                        data: {
+                            json: true
+                        }
+                    },
+                    "test2\\y": {
                         data: {
                             json: true
                         }

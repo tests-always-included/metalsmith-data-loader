@@ -1,6 +1,11 @@
 Changelog
 =========
 
+1.1.3 - 2019-12-03
+------------------
+
+* Fixing the `removeSource` option on Windows; issue #14.
+
 
 1.1.2 - 2017-08-01
 ------------------
