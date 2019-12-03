@@ -29,7 +29,7 @@
     "homepage": "https://github.com/tests-always-included/metalsmith-data-loader#readme",
     "dependencies": {
         "debug": "^4.1.1",
-        "js-yaml": "*",
+        "js-yaml": "^3.13.1",
         "metalsmith-plugin-kit": "^1.0.1"
     },
     "devDependencies": {
