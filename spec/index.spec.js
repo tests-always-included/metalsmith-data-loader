@@ -404,6 +404,9 @@ describe("metalsmith-data-loader", () => {
     describe("path resolution", () => {
         beforeEach(() => {
             fsMock.readFile.and.callFake((filename, encoding, callback) => {
+                // Handle win32
+                filename = filename.replace(/^[A-Z]:/, "").replace(/\\/g, "/");
+
                 callback(null, Buffer.from(JSON.stringify(filename), "utf8"));
             });
         });
