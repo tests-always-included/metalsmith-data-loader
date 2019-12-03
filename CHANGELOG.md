@@ -1,10 +1,16 @@
 Changelog
 =========
 
-1.1.3 - 2019-12-03
+1.1.4 - 2019-12-03
 ------------------
 
 * Fixing the `removeSource` option on Windows; issue #14.
+
+
+1.1.3 - 2019-03-09
+------------------
+
+* Added option to warn instead of fail when files can't be found.
 
 
 1.1.2 - 2017-08-01
