@@ -17,7 +17,7 @@ What It Does
 
 When working with templates, you sometimes want to generate something like a table in Markdown from external data.  You can do this with [metalsmith-hbt-md] but you need to get the extra data in your metadata.  That can be accomplished by [metalsmith-models] as long as you are willing to separate your source data from the template that needs it.
 
-This plugin differs from that approach, allowing you to have your Markdown files adjacent to the data that is inserted into the table.  This works better with an example.
+This plugin differs from that approach, allowing you to have your Markdown files adjacent to the data that is inserted into the table.  This plugin look at the `data` property (configurable) in your file's metadata, then replace that filename with the parsed contents of the file.  This works better with an example.
 
 `table.md`:
 
@@ -44,9 +44,33 @@ This plugin differs from that approach, allowing you to have your Markdown files
         last: Doe
         email: j.doe@example.com
 
+After parsing, the metalsmith file object for `table.md` would look like this:
+
+    ---
+    title: Just a test file to illustrate why the module is useful.
+    data:
+        -
+            first: Tyler
+            last: Akins
+            email: fidian@rumkin.com
+        -
+            first: Jane
+            last: Doe
+            email: j.doe@example.com
+    ---
+
+    Here's a great list of contacts:
+
+    | First | Last | Email |
+    |-------|------|-------|
+    {{#data}}| {{first}} | {{last}} | {{email}} |
+    {{/data}
+
 This isn't limited to table generation.  You could load metadata specific to a collection of pages.  Maybe you have a site where different authors maintain different pages and you could point to a single source for the author's information.
 
-If you prefer to work with code, there is an [example repository][example] set up that illustrates how the plugin functions.
+If you prefer to work with code, there is an [example repository][example] set up that illustrates how the plugin functions. Please pay special attention to how the extra data is referenced in the templates.
+
+**Note:** You can also use an array of filenames or an object whose values are all filenames. More information in the "Usage" section.
 
 
 Installation
