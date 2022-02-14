@@ -1,6 +1,6 @@
 {
     "name": "metalsmith-data-loader",
-    "version": "1.1.5",
+    "version": "1.2.0",
     "description": "Metalsmith plugin to load data from files directly into your metadata.",
     "tags": [
         "metalsmith",
@@ -28,17 +28,17 @@
     },
     "homepage": "https://github.com/tests-always-included/metalsmith-data-loader#readme",
     "dependencies": {
-        "debug": "^4.1.1",
-        "js-yaml": "^3.13.1",
-        "metalsmith-plugin-kit": "^1.1.4"
+        "debug": "^4.3.3",
+        "js-yaml": "^4.1.0",
+        "metalsmith-plugin-kit": "^1.2.0"
     },
     "devDependencies": {
-        "eslint": "^6.8.0",
-        "jasmine": "^3.5.0",
+        "eslint": "^8.9.0",
+        "jasmine": "^4.0.2",
         "jasmine-test-helpers": "^1.2.3",
-        "jsdoc-to-markdown": "^5.0.3",
-        "metalsmith": "^2.3.0",
+        "jsdoc-to-markdown": "^7.1.1",
+        "metalsmith": "^2.4.2",
         "mock-require": "^3.0.3",
-        "nodemon": "^2.0.2"
+        "nodemon": "^2.0.15"
     }
 }
