@@ -56,7 +56,6 @@ rules:
     max-statements-per-line: error
     new-cap: error
     new-parens: error
-    newline-after-var: error
     newline-before-return: error
     no-alert: error
     no-array-constructor: error
@@ -167,7 +166,6 @@ rules:
     object-curly-spacing: error
     object-property-newline: error
     object-shorthand: error
-    one-var: error
     operator-assignment: error
     operator-linebreak:
         - error
