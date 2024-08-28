@@ -1,6 +1,6 @@
 {
     "name": "metalsmith-data-loader",
-    "version": "1.5.0",
+    "version": "1.6.0",
     "description": "Metalsmith plugin to load data from files directly into your metadata.",
     "tags": [
         "metalsmith",
@@ -15,7 +15,7 @@
         "clean": "rm -rf coverage node_modules/ package-lock.json",
         "readme": "cp README.pre README.md && jsdoc2md --no-cache -f 'lib/**/*' --global-index-format grouped --property-list-format list --param-list-format list >> README.md && cat README.post >> README.md",
         "reinstall": "npm run clean && npm install",
-        "test": "jasmine && eslint lib spec",
+        "test": "jasmine",
         "watch": "nodemon --exec jasmine"
     },
     "repository": {
@@ -29,15 +29,14 @@
     },
     "homepage": "https://github.com/tests-always-included/metalsmith-data-loader#readme",
     "dependencies": {
-        "debug": "^4.3.5",
+        "debug": "^4.3.6",
         "js-yaml": "^4.1.0",
-        "metalsmith-plugin-kit": "^1.4.0"
+        "metalsmith-plugin-kit": "^1.5.0"
     },
     "devDependencies": {
-        "eslint": "^9.6.0",
-        "jasmine": "^5.1.0",
+        "jasmine": "^5.2.0",
         "jasmine-test-helpers": "^1.2.3",
-        "jsdoc-to-markdown": "^8.0.1",
+        "jsdoc-to-markdown": "^8.0.3",
         "metalsmith": "^2.6.3",
         "mock-require": "^3.0.3",
         "nodemon": "^3.1.4"
